@@ -6,21 +6,24 @@ type Technology = {
     category: string;
     difficulty: string;
     rating: number | string;
+    id: string;
 };
 
 type TechnologyCardProps =
     {
         technology: Technology;
         onAdd: (technology: Technology) => void;
-        isAdded: boolean;
+      
+        stack: Technology[];
     };
 
-const TechnologyCard = ({ technology, onAdd, isAdded }: TechnologyCardProps) => {
+const TechnologyCard = ({ technology, onAdd, stack }: TechnologyCardProps) => {
 
     const { icon, badge, name, description, category, difficulty, rating, } = technology;
 
 
-
+const isAdded = stack.some((item) => item.id === technology.id);
+                                    
 
 
 

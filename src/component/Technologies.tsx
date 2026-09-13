@@ -38,9 +38,7 @@ const Technologies = () => {
 
   // Add technology
   const handleAdd = (technology: Technology) => {
-    const alreadyAdded = stack.some(
-      (item) => item.id === technology.id
-    );
+    const alreadyAdded = stack.some((item) => item.id === technology.id);
 
     if (alreadyAdded) {
       toast.warning(`${technology.name} is already in your stack!`);
@@ -82,9 +80,7 @@ const Technologies = () => {
                   key={technology.id}
                   technology={technology}
                   onAdd={(technology) => handleAdd(technology as Technology)}
-                  isAdded={stack.some(
-                    (item) => item.id === technology.id
-                  )}
+                  stack={stack}
                 />
               ))}
             </div>
